@@ -9,7 +9,7 @@ function Cell({ letter, status }) {
 }
 
 function Guess({ value, answer }) {
-  const result = value ? checkGuess(value, answer) : undefined;
+  const result = checkGuess(value, answer);
 
   return (
     <p className="guess">
@@ -17,8 +17,8 @@ function Guess({ value, answer }) {
         return (
           <Cell
             key={num}
-            letter={result[num]?.letter}
-            status={result[num]?.status}
+            letter={result?.[num]?.letter}
+            status={result?.[num]?.status}
           />
         );
       })}
