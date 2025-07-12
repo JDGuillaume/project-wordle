@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({ handleSubmitGuess }) {
+function GuessInput({ handleSubmitGuess, gameStatus }) {
   const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   const handleSubmit = (e) => {
@@ -21,6 +21,7 @@ function GuessInput({ handleSubmitGuess }) {
         onChange={(e) => setTentativeGuess(e.target.value.toUpperCase())}
         pattern="[a-zA-Z]{5}"
         title="Submitted guess must be five letters in length."
+        disabled={gameStatus !== "running"}
         required
       />
     </form>
